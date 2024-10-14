@@ -1,0 +1,25 @@
+{
+	"name": "dmitriko/wc-custom-order-num",
+	"description": "Wordpress Woocommerce Custom Order number plugin",
+	"minimum-stability": "stable",
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "Walger Marketing",
+			"email": "info@walger-marketing.de"
+		}
+	],
+	"require": {
+		"twig/twig": "^3.7"
+	},
+	"autoload": {
+		"classmap": [
+			"inc/"
+		]
+	},
+	"config": {
+		"allow-plugins": {
+			"php-http/discovery": true
+		}
+	}
+}

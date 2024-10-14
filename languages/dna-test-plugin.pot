@@ -1,0 +1,331 @@
+# Copyright (C) 2023 Walger Marketing
+# This file is distributed under the same license as the Dog DNA tests plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dog DNA tests 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dna-test-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-09-28T18:07:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: dog-dna-tests\n"
+
+#. Plugin Name of the plugin
+msgid "Dog DNA tests"
+msgstr ""
+
+#. Description of the plugin
+msgid "Add ability to load dog DNA tests results to WC orders and download PDF for clients."
+msgstr ""
+
+#. Author of the plugin
+msgid "Walger Marketing"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.walger-marketing.de"
+msgstr ""
+
+#: inc/Admin/class-abstract-admin-page.php:72
+msgid "Report Template Texts"
+msgstr ""
+
+#: inc/Admin/class-abstract-admin-page.php:80
+msgid "Dog DNA"
+msgstr ""
+
+#: inc/Admin/class-abstract-admin-page.php:89
+msgid "Dog DNA Settings"
+msgstr ""
+
+#: inc/Admin/class-abstract-admin-page.php:107
+msgid "Plugin page"
+msgstr ""
+
+#: inc/Entity/class-dna-test.php:245
+#: inc/Entity/class-dna-test.php:273
+msgid "Mixed breed"
+msgstr ""
+
+#: inc/Subscriber/class-dna-metabox-subscriber.php:81
+msgid "Dog DNA Test"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:138
+#: inc/Subscriber/class-dna-store-subscriber.php:183
+#: inc/Subscriber/class-dna-store-subscriber.php:246
+#: inc/Subscriber/class-dna-store-subscriber.php:310
+#: inc/Subscriber/class-dna-store-subscriber.php:392
+#: inc/Subscriber/class-dna-store-subscriber.php:439
+msgid "Order ID is empty"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:151
+msgid "JSON file succesfuly detached"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:162
+msgid "Order doesn't have DNA test attachment"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:195
+msgid "DNA test file is empty"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:224
+#: inc/Subscriber/class-dna-store-subscriber.php:288
+msgid "DNA test file isn't attached"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:277
+msgid "DNA test file cannot be read"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:324
+msgid "No PDF attached"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:370
+msgid "Error during PDF attachment"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:407
+msgid "DNA test PDF file doesn't exist"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:418
+msgid "Order doesn't have DNA test PDF attachment"
+msgstr ""
+
+#: inc/Subscriber/class-dna-store-subscriber.php:460
+msgid "DNA test PDF file isn't attached"
+msgstr ""
+
+#: inc/Subscriber/class-extra-metabox-subscriber.php:61
+#: templates/extra-metabox.html.php:11
+msgid "Dog DNA Test info"
+msgstr ""
+
+#: inc/Subscriber/class-option-page-subscriber.php:65
+#: inc/Subscriber/class-option-page-subscriber.php:66
+msgid "DNA Test"
+msgstr ""
+
+#: templates/admin-page.html.php:13
+msgid "Settings Saved."
+msgstr ""
+
+#: templates/admin-page.html.php:16
+msgid "Dismiss this notice."
+msgstr ""
+
+#: templates/admin-page.html.php:24
+msgid "Submit"
+msgstr ""
+
+#: templates/admin-section.html.php:2
+msgid "The DOG DNA result temlate text editor. Please open any page of test result file to make text adjusments."
+msgstr ""
+
+#: templates/admin-section.html.php:5
+msgid "Click Submit button to save changes."
+msgstr ""
+
+#: templates/admin-section.html.php:10
+msgid "Page #1"
+msgstr ""
+
+#: templates/admin-section.html.php:16
+#: templates/admin-section.html.php:21
+msgid "Salutation"
+msgstr ""
+
+#: templates/admin-section.html.php:18
+msgid "Please fill the salutation text for DNA test result letter."
+msgstr ""
+
+#: templates/admin-section.html.php:22
+#: templates/admin-section.html.php:39
+#: templates/admin-section.html.php:59
+msgid "This text will be shown on page#1 in marked area."
+msgstr ""
+
+#: templates/admin-section.html.php:28
+msgid "Salutation text"
+msgstr ""
+
+#: templates/admin-section.html.php:33
+#: templates/admin-section.html.php:38
+msgid "Found breeds"
+msgstr ""
+
+#: templates/admin-section.html.php:35
+msgid "Please fill the found breeds text for DNA test result letter."
+msgstr ""
+
+#: templates/admin-section.html.php:46
+msgid "Found breeds text"
+msgstr ""
+
+#: templates/admin-section.html.php:51
+#: templates/admin-section.html.php:58
+msgid "Cover letter"
+msgstr ""
+
+#: templates/admin-section.html.php:53
+#: templates/admin-section.html.php:95
+msgid "Please fill the text notes. Use Markdown syntax to add styling for the text."
+msgstr ""
+
+#: templates/admin-section.html.php:54
+#: templates/admin-section.html.php:96
+#: templates/admin-section.html.php:140
+#: templates/admin-section.html.php:175
+msgid "Markdown syntax guide"
+msgstr ""
+
+#: templates/admin-section.html.php:55
+#: templates/admin-section.html.php:97
+#: templates/admin-section.html.php:141
+#: templates/admin-section.html.php:176
+msgid "To make header as in default template just add ### before the text. To add paragraph add blank row between sentences."
+msgstr ""
+
+#: templates/admin-section.html.php:62
+#: templates/admin-section.html.php:106
+#: templates/admin-section.html.php:150
+#: templates/admin-section.html.php:185
+msgid "Type text in left column and view the result in Previewer."
+msgstr ""
+
+#: templates/admin-section.html.php:71
+msgid "Cover letter text"
+msgstr ""
+
+#: templates/admin-section.html.php:75
+#: templates/admin-section.html.php:119
+#: templates/admin-section.html.php:163
+#: templates/admin-section.html.php:198
+msgid "Preview"
+msgstr ""
+
+#: templates/admin-section.html.php:87
+msgid "Page #3"
+msgstr ""
+
+#: templates/admin-section.html.php:93
+#: templates/admin-section.html.php:101
+msgid "Test notes"
+msgstr ""
+
+#: templates/admin-section.html.php:102
+msgid "This text will be shown on page#3 in marked area."
+msgstr ""
+
+#: templates/admin-section.html.php:115
+msgid "Test note text editor"
+msgstr ""
+
+#: templates/admin-section.html.php:131
+msgid "Page #4"
+msgstr ""
+
+#: templates/admin-section.html.php:137
+#: templates/admin-section.html.php:145
+msgid "Mixed breeds explanation"
+msgstr ""
+
+#: templates/admin-section.html.php:139
+#: templates/admin-section.html.php:174
+msgid "Please fill the mixed breeds explanation. Use Markdown syntax to add styling for the text."
+msgstr ""
+
+#: templates/admin-section.html.php:146
+#: templates/admin-section.html.php:181
+msgid "This text will be shown on page#4 in marked area."
+msgstr ""
+
+#: templates/admin-section.html.php:159
+msgid "Mixed breeds explanation text editor"
+msgstr ""
+
+#: templates/admin-section.html.php:172
+#: templates/admin-section.html.php:180
+msgid "Dog DNA test explanation"
+msgstr ""
+
+#: templates/admin-section.html.php:194
+msgid "Dog DNA test explanation text editor"
+msgstr ""
+
+#: templates/extra-metabox.html.php:15
+msgid "Dog"
+msgstr ""
+
+#: templates/extra-metabox.html.php:17
+msgid "Name of Dog"
+msgstr ""
+
+#: templates/extra-metabox.html.php:21
+msgid "Chip number"
+msgstr ""
+
+#: templates/extra-metabox.html.php:25
+msgid "Customer number"
+msgstr ""
+
+#: templates/extra-metabox.html.php:32
+msgid "Dog owner"
+msgstr ""
+
+#: templates/extra-metabox.html.php:32
+msgid "Authority"
+msgstr ""
+
+#: templates/extra-metabox.html.php:37
+msgid "Name of Dog owner"
+msgstr ""
+
+#: templates/extra-metabox.html.php:44
+msgid "Name of the authority"
+msgstr ""
+
+#: templates/extra-metabox.html.php:48
+msgid "Contact person"
+msgstr ""
+
+#: templates/extra-metabox.html.php:56
+msgid "Address"
+msgstr ""
+
+#: templates/extra-metabox.html.php:58
+msgid "Zip code"
+msgstr ""
+
+#: templates/extra-metabox.html.php:62
+msgid "City"
+msgstr ""
+
+#: templates/extra-metabox.html.php:66
+msgid "Street"
+msgstr ""
+
+#: templates/extra-metabox.html.php:72
+msgid "Sampling"
+msgstr ""
+
+#: templates/extra-metabox.html.php:74
+msgid "Sampled by"
+msgstr ""
+
+#: templates/extra-metabox.html.php:78
+msgid "Sampling date"
+msgstr ""
+
+#: templates/extra-metabox.html.php:82
+msgid "Sampling place"
+msgstr ""
