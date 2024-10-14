@@ -13,15 +13,15 @@
 
 namespace DKO\CON;
 
-use DKO\CON\Admin\Admin_Page;
+use DKO\CON\Admin\WC_Settings_Page;
 use DKO\CON\AssetManagement\Asset_Path;
 use DKO\CON\EventManagement\Event_Manager;
 use DKO\CON\EventManagement\Subscriber_Interface;
 use DKO\CON\Generator\Template_Generator;
 use DKO\CON\Shortcode\Shortcode_Interface;
 use DKO\CON\Subscriber\Admin_Assets_Subscriber;
-use DKO\CON\Subscriber\Admin_Page_Subscriber;
 use DKO\CON\Subscriber\Assets_Subscriber;
+use DKO\CON\Subscriber\WC_Settings_Page_Subscriber;
 
 /**
  * The core plugin class.
@@ -147,8 +147,8 @@ class Plugin {
 				self::VERSION,
 				trailingslashit( $this->plugin_path ) . 'language'
 			),
-			new Admin_Page_Subscriber(
-				new Admin_Page( new Options(), new Template_Generator( self::NAME, $this->plugin_path ) ),
+			new WC_Settings_Page_Subscriber(
+				new WC_Settings_Page( WC_Settings_Page_Subscriber::get_slug() ),
 				$this->plugin_path
 			),
 		);
