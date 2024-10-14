@@ -1,4 +1,4 @@
-.ddna-settings {
+.con-settings {
     &-header {
         text-align: center;
         margin: 0 0 1rem;
@@ -131,23 +131,25 @@
         }
     }
 
-    .dna-input-box-description {
-        font-size: 1.3em;
+    &-group{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
-    .dna-input-box {
+    .con-input-box-description {
+        font-size: 1.3em;
+        color: #2271b1;
+    }
+
+    .con-input-box {
         box-shadow: 2px 4px 12px rgba(0, 0, 0, .2);
         padding: 5px;
         background-color: #eee;
-        margin-bottom: 20px;
     }
 
     .wp-header-end {
         visibility: hidden;
         margin: -2px 0 0;
-    }
-
-    .dna-input-box-description {
-        color: #2271b1;
     }
 }

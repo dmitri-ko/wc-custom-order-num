@@ -19,6 +19,7 @@ use DKO\CON\EventManagement\Event_Manager;
 use DKO\CON\EventManagement\Subscriber_Interface;
 use DKO\CON\Generator\Template_Generator;
 use DKO\CON\Shortcode\Shortcode_Interface;
+use DKO\CON\Subscriber\Admin_Assets_Subscriber;
 use DKO\CON\Subscriber\Admin_Page_Subscriber;
 use DKO\CON\Subscriber\Assets_Subscriber;
 
@@ -135,6 +136,13 @@ class Plugin {
 			new Assets_Subscriber(
 				new Asset_Path( 'bundle-style', 'assets', $this->plugin_path, $this->plugin_url ),
 				new Asset_Path( 'bundle', 'assets', $this->plugin_path, $this->plugin_url ),
+				self::NAME,
+				self::VERSION,
+				trailingslashit( $this->plugin_path ) . 'language'
+			),
+			new Admin_Assets_Subscriber(
+				new Asset_Path( 'admin-style', 'assets', $this->plugin_path, $this->plugin_url ),
+				new Asset_Path( 'admin', 'assets', $this->plugin_path, $this->plugin_url ),
 				self::NAME,
 				self::VERSION,
 				trailingslashit( $this->plugin_path ) . 'language'

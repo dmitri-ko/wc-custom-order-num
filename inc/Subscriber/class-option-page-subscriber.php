@@ -62,8 +62,8 @@ class Option_Page_Subscriber implements Subscriber_Interface {
 		 </svg>';
 
 		add_menu_page(
-			__( 'DNA Test', 'dog-dna-tests' ),
-			__( 'DNA Test', 'dog-dna-tests' ),
+			__( 'DNA Test', 'wc-custom-order-num' ),
+			__( 'DNA Test', 'wc-custom-order-num' ),
 			'administrator',
 			'CON-settins-page',
 			array( $this->generator->generate() ),

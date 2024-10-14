@@ -39,28 +39,22 @@ class Admin_Page extends Abstract_Admin_Page {
 	public function __construct( Options $options, Template_Generator $generator ) {
 		parent::__construct( $options, $generator );
 		$this->tabs = array(
-			'texts'    => array(
-				'title'    => __( 'Report Template Texts', 'dog-dna-tests' ),
-				'slug'     => $this->get_slug() . '-texts',
-				'template' => 'admin-section-texts.html',
+			'common' => array(
+				'title'    => __( 'Main options', 'wc-custom-order-num' ),
+				'slug'     => $this->get_slug() . '-common',
+				'template' => 'admin-section-common.html',
 				'fields'   => array(
-					'salutation_text'        => '',
-					'found_breed_text'       => '',
-					'cover_letter_text'      => '',
-					'test_note_text'         => '',
-					'mixed_explanation_text' => '',
-					'test_explanation_text'  => '',
+					'start_date' => gmdate( get_option( 'date_format' ) ),
+					'prefix'     => '',
+					'start_num'  => '0001',
+					'postfix'    => '',
 				),
 			),
-			'advanced' => array(
-				'title'    => __( 'Advanced', 'dog-dna-tests' ),
-				'slug'     => $this->get_slug() . '-advanced',
-				'template' => 'admin-section-advanced.html',
-				'fields'   => array(
-					'gotenberg_url'            => 'http://localhost:3000',
-					'gotenberg_default_user'   => 'CON_admin',
-					'gotenberg_http_auth_user' => '',
-				),
+			'utils'  => array(
+				'title'    => __( 'Utils', 'wc-custom-order-num' ),
+				'slug'     => $this->get_slug() . '-utils',
+				'template' => 'admin-section-utils.html',
+				'fields'   => array(),
 			),
 		);
 	}
@@ -111,19 +105,19 @@ class Admin_Page extends Abstract_Admin_Page {
 	}
 
 	/**
-	 * Render the texts section.
+	 * Render the common section.
 	 */
-	public function render_section_texts() {
+	public function render_section_common() {
 		$page = $this;
-		$this->render_template( $this->tabs['texts']['template'], compact( 'page' ) );
+		$this->render_template( $this->tabs['common']['template'], compact( 'page' ) );
 	}
 
 	/**
-	 * Render the advanced section.
+	 * Render the utils section.
 	 */
-	public function render_section_advanced() {
+	public function render_section_utils() {
 		$page = $this;
-		$this->render_template( $this->tabs['advanced']['template'], compact( 'page' ) );
+		$this->render_template( $this->tabs['utils']['template'], compact( 'page' ) );
 	}
 
 	/**

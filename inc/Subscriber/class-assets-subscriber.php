@@ -123,7 +123,7 @@ class Assets_Subscriber implements Subscriber_Interface {
 			if ( function_exists( 'wp_set_script_translations' ) ) {
 				wp_set_script_translations(
 					$this->asset_name . '-bundle',
-					'dog-dna-tests',
+					'wc-custom-order-num',
 					$this->lang_path
 				);
 			}

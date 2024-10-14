@@ -38,7 +38,7 @@ abstract class Abstract_Admin_Page {
 	 *
 	 * @var string
 	 */
-	protected $slug = 'dog-dna-test';
+	protected $slug = 'wc-custom-order-num';
 
 	/**
 	 * Path to the admin page templates.
@@ -64,7 +64,7 @@ abstract class Abstract_Admin_Page {
 	 * @return string
 	 */
 	public function get_menu_title() {
-		return __( 'Dog DNA', 'dog-dna-tests' );
+		return __( 'Woocommerce custom order number', 'wc-custom-order-num' );
 	}
 
 	/**
@@ -73,7 +73,7 @@ abstract class Abstract_Admin_Page {
 	 * @return string
 	 */
 	public function get_page_title() {
-		return __( 'Dog DNA Settings', 'dog-dna-tests' );
+		return __( 'Woocommerce custom order number Settings', 'wc-custom-order-num' );
 	}
 
 	/**
@@ -91,7 +91,7 @@ abstract class Abstract_Admin_Page {
 	 * @return string
 	 */
 	public function get_plugins_page_title() {
-		return __( 'Plugin page', 'dog-dna-tests' );
+		return __( 'Plugin page', 'wc-custom-order-num' );
 	}
 
 	/**
