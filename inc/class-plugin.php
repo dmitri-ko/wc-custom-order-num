@@ -21,6 +21,7 @@ use DKO\CON\Generator\Template_Generator;
 use DKO\CON\Shortcode\Shortcode_Interface;
 use DKO\CON\Subscriber\Admin_Assets_Subscriber;
 use DKO\CON\Subscriber\Assets_Subscriber;
+use DKO\CON\Subscriber\CON_Subscriber;
 use DKO\CON\Subscriber\Utils_Subscriber;
 use DKO\CON\Subscriber\WC_Settings_Page_Subscriber;
 use DKO\CON\Subscriber\WC_Status_Page_Subscriber;
@@ -161,6 +162,7 @@ class Plugin {
 				)
 			),
 			new Utils_Subscriber(),
+			new CON_Subscriber(),
 		);
 	}
 
