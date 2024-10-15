@@ -140,7 +140,8 @@ abstract class Abstract_Admin_Page {
 	 * @param  array  $args The template arguments.
 	 */
 	protected function render_template( $template, array $args ) {
-		echo $this->generator->generate( $template, $args );  // phpcs:ignore WordPress.Security.EscapeOutput
+		$this->generator->set_template_name( $template );
+		echo $this->generator->generate( $args );  // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 
 	/**

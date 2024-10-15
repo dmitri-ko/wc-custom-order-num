@@ -48,7 +48,8 @@ class WC_Settings_Page {
 		$this->slug     = $slug;
 		$this->settings = array(
 			new Setting( 'start_date', __( 'Start date', 'wc-custom-order-num' ), gmdate( get_option( 'date_format' ) ), 'date' ),
-			new Setting( 'start_num', __( 'Starting number', 'wc-custom-order-num' ), '0001' ),
+			new Setting( 'start_num', __( 'Starting number', 'wc-custom-order-num' ), 1 ),
+			new Setting( 'num_length', __( 'Number length', 'wc-custom-order-num' ), 4 ),
 			new Setting( 'prefix', __( 'Prefix', 'wc-custom-order-num' ) ),
 			new Setting( 'postfix', __( 'Postfix', 'wc-custom-order-num' ) ),
 		);
@@ -57,7 +58,7 @@ class WC_Settings_Page {
 	/**
 	 * Add custom tab
 	 *
-	 * @param  array  $settings_tabs The Woocommerce settings tabs.
+	 * @param  array $settings_tabs The Woocommerce settings tabs.
 	 *
 	 * @return array
 	 */

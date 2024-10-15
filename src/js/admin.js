@@ -1,1 +1,1 @@
-import './admin/settings-page';
+import './admin/wc-status-page';

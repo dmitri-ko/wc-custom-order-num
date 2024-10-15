@@ -21,7 +21,9 @@ use DKO\CON\Generator\Template_Generator;
 use DKO\CON\Shortcode\Shortcode_Interface;
 use DKO\CON\Subscriber\Admin_Assets_Subscriber;
 use DKO\CON\Subscriber\Assets_Subscriber;
+use DKO\CON\Subscriber\Utils_Subscriber;
 use DKO\CON\Subscriber\WC_Settings_Page_Subscriber;
+use DKO\CON\Subscriber\WC_Status_Page_Subscriber;
 
 /**
  * The core plugin class.
@@ -151,6 +153,14 @@ class Plugin {
 				new WC_Settings_Page( WC_Settings_Page_Subscriber::get_slug() ),
 				$this->plugin_path
 			),
+			new WC_Status_Page_Subscriber(
+				new Template_Generator(
+					self::NAME,
+					$this->plugin_path,
+					'wc-status-page.html'
+				)
+			),
+			new Utils_Subscriber(),
 		);
 	}
 
