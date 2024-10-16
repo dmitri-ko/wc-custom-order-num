@@ -1,0 +1,27 @@
+.loader {
+    display: block;
+    --d: 15.6px;
+    width: 0.2px;
+    height: 3.2px;
+    border-radius: 50%;
+    color: $custom-color-accent;
+    box-shadow: calc(1*var(--d)) calc(0*var(--d)) 0 0,
+        calc(0.707*var(--d)) calc(0.707*var(--d)) 0 1.1px,
+        calc(0*var(--d)) calc(1*var(--d)) 0 2.2px,
+        calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3.4px,
+        calc(-1*var(--d)) calc(0*var(--d)) 0 4.5px,
+        calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5.6px,
+        calc(0*var(--d)) calc(-1*var(--d)) 0 6.7px;
+    animation: spinner-a90wxe 1.2s infinite steps(8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    @keyframes spinner-a90wxe {
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+}
+
+

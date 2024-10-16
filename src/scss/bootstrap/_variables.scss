@@ -1,30 +1,16 @@
 /* colors */
-$system-text-color--main: #333333;
-$system-text-color--second: #202424;
+$custom-color-accent: #4e125f;
+$custom-color-btn-background: #f1eaf3;
 
-$custom-color-btn--default: #ff7033;
-$custom-color-btn--hover: #163a7b;
+$custom-color-error: #a0236d;
+$custom-color-warning: #d6cd71;
+$custom-color-success: #92d980;
 
-
-$custom-color-line: #d2d2d2;
-$custom-color-line--dark: #434d8e;
-
-$custom-color-bg--default: #fff;
-$custom-color-bg--light: #d2d2d2;
-$custom-color-bg--dark: #202424;
-
-$custom-color-accent: #abcde8;
-
-$custom-color-error: #f4a8a7;
-$custom-color-warning: #f1dca3;
-$custom-color-success: #b2d491;
+$custom-color-border: #c3c4c7
 
 
 /* Fonts */
-$font-family--main: 'AnekTelugu', 'Anek Telugu', sans-serif;
-$font-family--secondary: 'Inter', sans-serif;
+
 
 
 /* Sizes */
-$sz-page-height: 297mm;
-$sz-page-width: 210mm;

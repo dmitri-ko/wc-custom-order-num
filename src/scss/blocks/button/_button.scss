@@ -1,0 +1,8 @@
+.button {
+    &--utils {
+        position: relative;
+        color: $custom-color-accent !important;
+        border-color: $custom-color-accent !important;
+        background-color: $custom-color-btn-background !important;
+    }
+}

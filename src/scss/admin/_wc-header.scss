@@ -1,0 +1,8 @@
+.wc-header {
+    &-content {
+        font-weight: 500 !important;
+        color: $custom-color-accent !important;
+        text-transform: uppercase;
+        border-bottom: 1px solid $custom-color-border;
+    }
+}

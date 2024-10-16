@@ -71,6 +71,7 @@ class Utils_Subscriber implements Subscriber_Interface {
 
 		$orders = wc_get_orders(
 			array(
+				'numberposts'  => -1,
 				'date_created' => '>=' . $start_date,
 				'orderby'      => 'date_created',
 				'order'        => 'ASC',
@@ -86,7 +87,7 @@ class Utils_Subscriber implements Subscriber_Interface {
 		return new \WP_REST_Response(
 			array(
 				'success' => true,
-				'message' => count( $orders ) . ' orders were succesfully regenerated.',
+				'message' => 'Custom order numbers for ' . count( $orders ) . ' orders were succesfully regenerated.',
 			)
 		);
 	}
@@ -101,6 +102,7 @@ class Utils_Subscriber implements Subscriber_Interface {
 		$start_date = \WC_Admin_Settings::get_option( 'start_date' );
 		$orders     = wc_get_orders(
 			array(
+				'numberposts'  => -1,
 				'date_created' => '>=' . $start_date,
 				'orderby'      => 'date_created',
 				'order'        => 'ASC',
@@ -115,7 +117,7 @@ class Utils_Subscriber implements Subscriber_Interface {
 		return new \WP_REST_Response(
 			array(
 				'success' => true,
-				'message' => count( $orders ) . ' orders were succesfully reset.',
+				'message' => 'Custom order numbers for ' . count( $orders ) . ' orders were succesfully reset.',
 			)
 		);
 	}
