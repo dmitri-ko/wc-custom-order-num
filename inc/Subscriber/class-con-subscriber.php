@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Dog DNA tests plugin.
+ * This file is part of the Woocommerce Custom Order plugin.
  *
  * (c) Walger Marketing
  *
@@ -30,19 +30,33 @@ class CON_Subscriber implements Subscriber_Interface {
 	public static function get_subscribed_events() {
 		return array(
 			'woocommerce_order_number' => 'show_number',
+			'woocommerce_new_order'    => array( 'generate_custom_num', 10, 2 ),
 		);
 	}
 
 
 	/**
-	 * Undocumented function
+	 * Show custom order number
 	 *
-	 * @param  int $order_id
+	 * @param  int $order_id The order ID.
 	 *
 	 * @return string
 	 */
 	public function show_number( int $order_id ): string {
-		$customer_order = new Customer_Order( wc_get_order( $order_id ) );
+		$customer_order = new Customer_Order( $order_id );
 		return $customer_order->get_order_num();
+	}
+
+	/**
+	 * Generate custom order number for WC_Order
+	 *
+	 * @param  int       $order_id The order ID.
+	 * @param  \WC_Order $order The order.
+	 *
+	 * @return void
+	 */
+	public function generate_custom_num( int $order_id, \WC_Order $order ) {
+		$custom_num = Customer_Order::get_next_order_num();
+		$order->update_meta_data( Customer_Order::CON_META_KEY, $custom_num );
 	}
 }

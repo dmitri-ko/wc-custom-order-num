@@ -1,5 +1,5 @@
 # Copyright (C) 2023 Walger Marketing
-# This file is distributed under the same license as the Dog DNA tests plugin.
+# This file is distributed under the same license as the Woocommerce Custom Order plugin.
 msgid ""
 msgstr ""
 "Project-Id-Version: Dog DNA tests 1.0.1\n"

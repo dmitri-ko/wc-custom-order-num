@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Dog DNA tests plugin.
+ * This file is part of the Woocommerce Custom Order plugin.
  *
  * (c) Walger Marketing
  *
@@ -78,8 +78,9 @@ class Utils_Subscriber implements Subscriber_Interface {
 		);
 
 		foreach ( $orders as $order ) {
-			$customer_order = new Customer_Order( $order );
-			$customer_order->generate_order_num( (int) $start_num++ );
+			$customer_order = new Customer_Order( $order->get_id() );
+			$customer_order->set_order_num( (int) $start_num++ );
+			$customer_order->save_meta();
 		}
 
 		return new \WP_REST_Response(
@@ -107,7 +108,7 @@ class Utils_Subscriber implements Subscriber_Interface {
 		);
 
 		foreach ( $orders as $order ) {
-			$customer_order = new Customer_Order( $order );
+			$customer_order = new Customer_Order( $order->get_id() );
 			$customer_order->reset_order_num();
 		}
 

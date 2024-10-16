@@ -14,8 +14,6 @@
 
 namespace DKO\CON\Entity;
 
-use DKO\CON\Service\CON_JSON_Reader;
-
 /**
  * WC Order with custom order number support
  *
@@ -42,31 +40,69 @@ class Customer_Order {
 	/**
 	 * Create Customer order
 	 *
-	 * @param  \WC_Order|\WP_Post $post_or_order_object The order or order ID.
+	 * @param int $order_id The order ID.
 	 */
-	public function __construct( \WC_Order|\WP_Post $post_or_order_object ) {
-		$this->order = ( $post_or_order_object instanceof \WP_Post ) ? wc_get_order( $post_or_order_object->ID ) : $post_or_order_object;
+	public function __construct( int $order_id ) {
+		$this->order = wc_get_order( $order_id );
 		$this->store = array();
 	}
 
 	/**
 	 * Gets the order ID
 	 *
-	 * @return int/string
+	 * @return int
 	 */
-	public function get_id() {
-		return $this->order->get_id();
+	public function get_id(): int {
+		return $this->is_valid() ? $this->order->get_id() : 0;
 	}
 
 
 	/**
 	 * Get order number
 	 *
-	 * @param string $default_value  the default metadata value if value is not set.
 	 * @return string
 	 */
-	public function get_order_num( string $default_value = '' ): string {
-		return $this->get_meta_with_default( self::CON_META_KEY, $default_value );
+	public function get_order_num(): string {
+		if ( ! $this->is_valid() ) {
+			return '';
+		}
+		$prefix     = \WC_Admin_Settings::get_option( 'prefix' );
+		$postfix    = \WC_Admin_Settings::get_option( 'postfix' );
+		$num_length = \WC_Admin_Settings::get_option( 'num_length' );
+		$custom_num = $this->get_meta_with_default( self::CON_META_KEY, false );
+
+		return $custom_num ? ( $prefix . sprintf( '%0' . $num_length . 'd', $custom_num ) . $postfix ) : $this->get_id();
+	}
+
+	/**
+	 * Get next available order num
+	 *
+	 * @return int
+	 */
+	public static function get_next_order_num(): int {
+		$custom_num = 0;
+
+			$orders = wc_get_orders(
+				array(
+					'meta_query' => array(
+						array(
+							'key'     => self::CON_META_KEY,
+							'compare' => 'EXISTS',
+						),
+					),
+					'orderby'    => 'date_created',
+					'order'      => 'DESC',
+				)
+			);
+		if ( count( $orders ) ) {
+			$last_order = $orders[0];
+			$custom_num = $last_order->get_meta( self::CON_META_KEY );
+			++$custom_num;
+		} else {
+			$custom_num = \WC_Admin_Settings::get_option( 'start_num' );
+		}
+
+		return $custom_num;
 	}
 
 	/**
@@ -78,22 +114,6 @@ class Customer_Order {
 	 */
 	public function set_order_num( string $order_num ) {
 		$this->store[ self::CON_META_KEY ] = $order_num;
-	}
-
-	/**
-	 * Generate order number
-	 *
-	 * @param  int $num The order number.
-	 *
-	 * @return void
-	 */
-	public function generate_order_num( int $num ) {
-		$prefix     = \WC_Admin_Settings::get_option( 'prefix' );
-		$postfix    = \WC_Admin_Settings::get_option( 'postfix' );
-		$num_length = \WC_Admin_Settings::get_option( 'num_length' );
-
-		$this->store[ self::CON_META_KEY ] = $prefix . sprintf( '%0' . $num_length . 'd', $num ) . $postfix;
-		$this->save_meta();
 	}
 
 	/**
@@ -125,7 +145,7 @@ class Customer_Order {
 	 * @return mixed
 	 */
 	protected function get_cached_meta( $meta_key ) {
-		if ( ! isset( $this->store[ $meta_key ] ) ) {
+		if ( ! isset( $this->store[ $meta_key ] ) && $this->is_valid() ) {
 			$this->store[ $meta_key ] = $this->order->get_meta( $meta_key );
 		}
 
@@ -138,10 +158,12 @@ class Customer_Order {
 	 * @return void
 	 */
 	public function save_meta() {
-		foreach ( $this->store as $meta_key => $meta_value ) {
-			$this->order->update_meta_data( $meta_key, $meta_value );
+		if ( $this->is_valid() ) {
+			foreach ( $this->store as $meta_key => $meta_value ) {
+				$this->order->update_meta_data( $meta_key, $meta_value );
+			}
+			$this->order->save();
 		}
-		$this->order->save();
 	}
 
 	/**
@@ -151,8 +173,19 @@ class Customer_Order {
 	 * @return void
 	 */
 	protected function remove_meta( string $key ) {
-		unset( $this->store[ $key ] );
-		$this->order->delete_meta_data( $key );
-		$this->order->save();
+		if ( $this->is_valid() ) {
+			unset( $this->store[ $key ] );
+			$this->order->delete_meta_data( $key );
+			$this->order->save();
+		}
+	}
+
+	/**
+	 * Check object concistency
+	 *
+	 * @return bool
+	 */
+	private function is_valid(): bool {
+		return ! empty( $this->order );
 	}
 }
