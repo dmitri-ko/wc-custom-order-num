@@ -69,7 +69,7 @@ class Git_Updater implements Updater_Interface {
 		if ( false === $remote || ! $this->cache_allowed ) {
 
 			$remote = wp_remote_get(
-				'https://github.com/dmitri-ko/wc-custom-order-num/wp-org-assets/info.json',
+				'https://github.com/dmitri-ko/wc-custom-order-num/releases/download/initial/info.json',
 				array(
 					'timeout' => 10,
 					'headers' => array(
