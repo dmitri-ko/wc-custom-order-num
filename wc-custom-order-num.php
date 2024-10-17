@@ -3,7 +3,7 @@
  * Woocommerce Custom Order Number
  *
  * @package CON
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 /*
@@ -12,7 +12,7 @@ Description: Add custom order number functionality.
 Text Domain: wc-custom-order-num
 Domain Path: /languages
 Author: Walger Marketing
-Version: 1.0.0
+Version: 1.1.0
 Author URI: https://www.walger-marketing.de
  */
 

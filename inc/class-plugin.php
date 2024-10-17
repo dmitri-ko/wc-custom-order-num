@@ -22,9 +22,11 @@ use DKO\CON\Shortcode\Shortcode_Interface;
 use DKO\CON\Subscriber\Admin_Assets_Subscriber;
 use DKO\CON\Subscriber\Assets_Subscriber;
 use DKO\CON\Subscriber\CON_Subscriber;
+use DKO\CON\Subscriber\Updater_Subscriber;
 use DKO\CON\Subscriber\Utils_Subscriber;
 use DKO\CON\Subscriber\WC_Settings_Page_Subscriber;
 use DKO\CON\Subscriber\WC_Status_Page_Subscriber;
+use DKO\CON\Updater\Git_Updater;
 
 /**
  * The core plugin class.
@@ -42,7 +44,7 @@ class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.1.0';
 
 	/**
 	 * The plugin name
@@ -163,6 +165,12 @@ class Plugin {
 			),
 			new Utils_Subscriber(),
 			new CON_Subscriber(),
+			new Updater_Subscriber(
+				new Git_Updater(
+					self::NAME,
+					self::VERSION
+				)
+			),
 		);
 	}
 
