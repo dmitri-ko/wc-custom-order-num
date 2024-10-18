@@ -50,7 +50,7 @@ class Updater_Subscriber implements Subscriber_Interface {
 		return array(
 			'plugins_api'                   => array( 'info', 20, 3 ),
 			'site_transient_update_plugins' => 'update',
-			'upgrader_process_complete'     => array( 'upgrader_process_complete', 10, 2 ),
+			'upgrader_process_complete'     => array( 'purge', 10, 2 ),
 		);
 	}
 

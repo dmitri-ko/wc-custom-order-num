@@ -18,10 +18,12 @@ use DKO\CON\AssetManagement\Asset_Path;
 use DKO\CON\EventManagement\Event_Manager;
 use DKO\CON\EventManagement\Subscriber_Interface;
 use DKO\CON\Generator\Template_Generator;
+use DKO\CON\Service\Plugin_Details;
 use DKO\CON\Shortcode\Shortcode_Interface;
 use DKO\CON\Subscriber\Admin_Assets_Subscriber;
 use DKO\CON\Subscriber\Assets_Subscriber;
 use DKO\CON\Subscriber\CON_Subscriber;
+use DKO\CON\Subscriber\Details_Subscriber;
 use DKO\CON\Subscriber\Updater_Subscriber;
 use DKO\CON\Subscriber\Utils_Subscriber;
 use DKO\CON\Subscriber\WC_Settings_Page_Subscriber;
@@ -44,7 +46,7 @@ class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.1.0';
+	const VERSION = '1.1.1';
 
 	/**
 	 * The plugin name
@@ -171,6 +173,7 @@ class Plugin {
 					self::VERSION
 				)
 			),
+			new Details_Subscriber( new Plugin_Details() ),
 		);
 	}
 

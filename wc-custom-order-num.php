@@ -2,18 +2,25 @@
 /**
  * Woocommerce Custom Order Number
  *
- * @package CON
- * @version 1.1.0
- */
-
-/*
-Plugin Name: Woocommerce Custom Order Number
-Description: Add custom order number functionality.
-Text Domain: wc-custom-order-num
-Domain Path: /languages
-Author: Walger Marketing
-Version: 1.1.0
-Author URI: https://www.walger-marketing.de
+ * @package           CON
+ * @author            Walger Marketing
+ * @copyright         2024 Walger Marketing
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Woocommerce Custom Order Number
+ * Plugin URI:        https://www.walger-marketing.de/wc-custom-order-num
+ * Description:       Add custom order number functionality.
+ * Version:           1.1.1
+ * Requires at least: 5.6
+ * Requires PHP:      8.0
+ * Author:            Walger Marketing
+ * Author URI:        https://www.walger-marketing.de
+ * Text Domain:       wc-custom-order-num
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Update URI:        https://www.walger-marketing.de/wc-custom-order-num
+ * Requires Plugins:  woocommerce
  */
 
 use DKO\CON\Plugin;

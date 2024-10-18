@@ -1,24 +1,24 @@
 {
-	"name" : "Woocommerce Custom Order Number",
-	"slug" : "wc-custom-order-num",
-	"author" : "<a href='https://www.walger-marketing.de'>Walger Marketing</a>",
-    "author_profile" : "https://www.walger-marketing.de",
-    "donate_link" : "",
-	"version" : "1.1",
-	"download_url" : "https://github.com/dmitri-ko/wc-custom-order-num/releases/download/v1.0/wc-custom-order-num.zip",
-	"requires" : "5.6",
-	"tested" : "6.6",
-	"requires_php" : "8.0",
-	"added" : "2024-10-16 17:45:00",
-	"last_updated" : "2024-10-17 12:10:00",
-	"homepage" : "https://www.walger-marketing.de",
-	"sections" : {
-		"description" : "Maintain custom order number format for WooCommerce.",
-		"installation" : "Click the activate button and that's it.",
-		"changelog" : "<h4>v1.1 released on October 17, 2024</h4><ul><li>Feature: Automatic updates integrated with Github release.</li><li>Improvement: Add settings link to plugin page.</li></ul><h4>v1.0.0 released on October 16, 2024</h4><ul><li>Initial release of WooCommerc Custom number. Ability to customize and use custom order numbers for WooCommerce.</li><li>Feature: Customizable order number format.</li><li>Feature: Utilites for custom number regeneration and reset.</li></ul>"
-	},
-	"banners" : {
-		"low" : "https://github.com/dmitri-ko/wc-custom-order-num/wp-org-assets/banner-772x250.jpg",
-		"high" : "https://github.com/dmitri-ko/wc-custom-order-num/wp-org-assets/banner-1544x500.jpg"
-	}
+    "name": "Woocommerce Custom Order Number",
+    "slug": "wc-custom-order-num",
+    "author": "<a href='https://www.walger-marketing.de'>Walger Marketing</a>",
+    "author_profile": "https://www.walger-marketing.de",
+    "donate_link": "",
+    "version": "1.1.1",
+    "download_url": "https://github.com/dmitri-ko/wc-custom-order-num/releases/download/v1.1.1/wc-custom-order-num.zip",
+    "requires": "5.6",
+    "tested": "6.6.2",
+    "requires_php": "8.0",
+    "added": "2024-10-16 17:45:00",
+    "last_updated": "2024-10-18 10:21:00",
+    "homepage": "https://www.walger-marketing.de",
+    "sections": {
+        "description": "Maintain custom order number format for WooCommerce.",
+        "installation": "Click the activate button and that's it.",
+        "changelog": "<h4>v1.1.1 released on October 18, 2024</h4><ul>    <li>Feature: Show plugin details on plugins page.</li></ul><h4>v1.1 released on October 17, 2024</h4><ul><li>Feature: Automatic updates integrated with Github release.</li><li>Improvement: Add settings link to plugin page.</li></ul><h4>v1.0.0 released on October 16, 2024</h4><ul><li>Initial release of WooCommerc Custom number. Ability to customize and use custom order numbers for WooCommerce.</li><li>Feature: Customizable order number format.</li><li>Feature: Utilites for custom number regeneration and reset.</li></ul>"
+    },
+    "banners": {
+        "low": "https://github.com/dmitri-ko/wc-custom-order-num/releases/download/initial/banner-772x250.jpg",
+        "high": "https://github.com/dmitri-ko/wc-custom-order-num/releases/download/initial//banner-1544x500.jpg"
+    }
 }
