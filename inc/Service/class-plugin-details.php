@@ -34,6 +34,12 @@ class Plugin_Details {
 	 */
 	public function plugin_links( array $links, string $plugin_file, array $plugin_data ): array {
 		if ( false !== strpos( $plugin_data['PluginURI'], 'wc-custom-order-num' ) ) {
+			foreach ( array_values( $links ) as $link ) {
+				if ( false !== strpos( $link, 'plugin-information' ) ) {
+					return $links;
+				}
+			}
+
 			$slug = basename( $plugin_data['PluginURI'] );
 
 			$links[] = sprintf(
