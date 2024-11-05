@@ -29,8 +29,8 @@ class CON_Subscriber implements Subscriber_Interface {
 	 */
 	public static function get_subscribed_events() {
 		return array(
-			'woocommerce_order_number' => 'show_number',
-			'woocommerce_new_order'    => array( 'generate_custom_num', 10, 2 ),
+			'woocommerce_order_number'             => 'show_number',
+			'woocommerce_before_order_object_save' => 'generate_custom_num',
 		);
 	}
 
@@ -48,15 +48,20 @@ class CON_Subscriber implements Subscriber_Interface {
 	}
 
 	/**
-	 * Generate custom order number for WC_Order
+	 * Generate custom order number while the order is saving
 	 *
-	 * @param  int       $order_id The order ID.
-	 * @param  \WC_Order $order The order.
+	 * @param  \WC_Data $maybe_order The order.
 	 *
 	 * @return void
 	 */
-	public function generate_custom_num( int $order_id, \WC_Order $order ) {
-		$custom_num = Customer_Order::get_next_order_num();
-		$order->update_meta_data( Customer_Order::CON_META_KEY, $custom_num );
+	public function generate_custom_num( \WC_Data $maybe_order ): void {
+		if ( ! $maybe_order instanceof \WC_Order ) {
+			return;
+		}
+
+		if ( ! $maybe_order->get_meta( Customer_Order::CON_META_KEY ) ) {
+			$custom_num = Customer_Order::get_next_order_num();
+			$maybe_order->update_meta_data( Customer_Order::CON_META_KEY, $custom_num );
+		}
 	}
 }

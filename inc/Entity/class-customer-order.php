@@ -22,6 +22,7 @@ namespace DKO\CON\Entity;
 class Customer_Order {
 
 	const CON_META_KEY = '_order_num';
+	const CON_TRANSIENT_KEY = 'wc_custom_order_num_free_num';
 
 	/**
 	 * The Order object for Customer order
@@ -80,8 +81,10 @@ class Customer_Order {
 	 * @return int
 	 */
 	public static function get_next_order_num(): int {
-		$custom_num = 0;
 
+		$custom_num = get_transient( self::CON_TRANSIENT_KEY );
+
+		if ( false === $custom_num ) {
 			$orders = wc_get_orders(
 				array(
 					'meta_query' => array(
@@ -94,14 +97,18 @@ class Customer_Order {
 					'order'      => 'DESC',
 				)
 			);
-		if ( count( $orders ) ) {
-			$last_order = $orders[0];
-			$custom_num = $last_order->get_meta( self::CON_META_KEY );
-			++$custom_num;
+			if ( count( $orders ) ) {
+				$last_order = $orders[0];
+				$custom_num = $last_order->get_meta( self::CON_META_KEY );
+				++$custom_num;
+			} else {
+				$custom_num = \WC_Admin_Settings::get_option( 'start_num' );
+			}
+			set_transient( self::CON_TRANSIENT_KEY, $custom_num, DAY_IN_SECONDS );
 		} else {
-			$custom_num = \WC_Admin_Settings::get_option( 'start_num' );
+			++$custom_num;
+			set_transient( self::CON_TRANSIENT_KEY, $custom_num, DAY_IN_SECONDS );
 		}
-
 		return $custom_num;
 	}
 
