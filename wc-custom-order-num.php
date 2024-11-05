@@ -11,7 +11,7 @@
  * Plugin Name:       Woocommerce Custom Order Number
  * Plugin URI:        https://www.walger-marketing.de/wc-custom-order-num
  * Description:       Add custom order number functionality.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            Walger Marketing
