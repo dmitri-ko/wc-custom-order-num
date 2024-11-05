@@ -57,6 +57,16 @@ class Utils_Subscriber implements Subscriber_Interface {
 				'permission_callback' => '__return_true',
 			)
 		);
+
+		register_rest_route(
+			'CON/v1/utils',
+			'/fill-gaps/',
+			array(
+				'methods'             => \WP_REST_Server::CREATABLE,
+				'callback'            => array( $this, 'fill_gaps_order_number' ),
+				'permission_callback' => '__return_true',
+			)
+		);
 	}
 
 	/**
@@ -118,6 +128,47 @@ class Utils_Subscriber implements Subscriber_Interface {
 			array(
 				'success' => true,
 				'message' => 'Custom order numbers for ' . count( $orders ) . ' orders were succesfully reset.',
+			)
+		);
+	}
+
+	/**
+	 * Fill gaps in order numbers
+	 *
+	 * @param  \WP_REST_Request $request The request.
+	 * @return \WP_REST_Response
+	 */
+	public function fill_gaps_order_number( \WP_REST_Request $request ): \WP_REST_Response {
+		$start_date = \WC_Admin_Settings::get_option( 'start_date' );
+
+		$orders = wc_get_orders(
+			array(
+				'numberposts'  => -1,
+				'date_created' => '>=' . $start_date,
+				'orderby'      => 'date_created',
+				'order'        => 'ASC',
+			)
+		);
+
+		$current_num = -1;
+		foreach ( $orders as $order_key => $order ) {
+			$customer_order = new Customer_Order( $order->get_id() );
+			if ( ( -1 === $current_num ) && ! ( $order->get_meta( Customer_Order::CON_META_KEY ) ) ) {
+				$current_num = $orders[ $order_key - 1 ]->get_meta( Customer_Order::CON_META_KEY );
+				++$current_num;
+			}
+			if ( -1 !== $current_num ) {
+				$customer_order->set_order_num( (int) $current_num );
+				$customer_order->save_meta();
+				set_transient( Customer_Order::CON_TRANSIENT_KEY, $current_num, DAY_IN_SECONDS );
+				++$current_num;
+			}
+		}
+
+		return new \WP_REST_Response(
+			array(
+				'success' => true,
+				'message' => 'Custom order numbers for ' . count( $orders ) . ' orders were succesfully fixed.',
 			)
 		);
 	}

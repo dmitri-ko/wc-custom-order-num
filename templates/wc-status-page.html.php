@@ -21,6 +21,15 @@
 				<button type="submit" form="form_reset_order_nums" class="button button-large button--utils  js-con-utils-reset" ><?php esc_html_e( 'Reset order numbers', 'wc-custom-order-num' ); ?></button>
 			</td>
 		</tr>
+		<tr class="fix_order_nums">
+			<th>
+				<strong class="name"><?php esc_html_e( 'Fix order numbers', 'wc-custom-order-num' ); ?></strong>
+				<p class="description">	<?php esc_html_e( 'This tool will fix order numbers and fill gaps in the sequence.', 'wc-custom-order-num' ); ?>		</p>
+			</th>
+			<td class="run-tool">					
+				<button type="submit" class="button button-large button--utils  js-con-utils-fix" ><?php esc_html_e( 'Fix order numbers', 'wc-custom-order-num' ); ?></button>
+			</td>
+		</tr>
 	</tbody>
 </table>
 <div class="message-box hidden" id="message-box-message"></span></div>
