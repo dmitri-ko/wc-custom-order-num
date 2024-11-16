@@ -74,7 +74,7 @@ class Search_Subscriber implements Subscriber_Interface {
 			array(
 				'key'   => Customer_Order::CON_META_KEY,
 				'value' => $seed,
-			)
+			),
 		);
 
 		$args['meta_query'] = array_merge( $args['meta_query'] ?? array(), $meta_query );
