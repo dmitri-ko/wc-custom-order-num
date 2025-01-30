@@ -78,7 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	document.querySelectorAll('.js-con-utils-fix').forEach((item) => {
 		item.addEventListener('click', (e) => {
-			runTool('/wp-json/con/v1/utils/fill-gaps/', e );
+			runTool('/wp-json/con/v1/utils/fill-gaps/', e);
+		});
+
+		document.querySelectorAll('.js-con-utils-persist').forEach((item) => {
+			item.addEventListener('click', (e) => {
+				runTool('/wp-json/con/v1/utils/persist-numbers/', e);
+			});
 		});
 	});
 });

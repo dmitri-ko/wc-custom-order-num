@@ -16,6 +16,7 @@ namespace DKO\CON\Subscriber;
 
 use DKO\CON\EventManagement\Subscriber_Interface;
 use DKO\CON\Admin\WC_Settings_Page;
+use DKO\CON\Entity\Customer_Order;
 
 /**
  * WC settings page subscriber.
@@ -69,6 +70,8 @@ class WC_Settings_Page_Subscriber implements Subscriber_Interface {
 
 	/**
 	 * Configure the admin page using the Settings API.
+	 *
+	 * @param array $settings_tabs The settings tabs.
 	 */
 	public function configure( $settings_tabs ) {
 		return $this->page->configure( $settings_tabs );
@@ -89,6 +92,36 @@ class WC_Settings_Page_Subscriber implements Subscriber_Interface {
 	 * @return void
 	 */
 	public function save() {
+		// Get the settings fields.
+		$settings = $this->page->get_available_settings();
+		delete_transient( Customer_Order::CON_TRANSIENT_KEY );
+		// Loop through settings to store historical values.
+		foreach ( $settings as $setting ) {
+			if ( ! isset( $setting['id'] ) ) {
+				continue;
+			}
+
+			$option_key = $setting['id'];
+			$old_value  = get_option( $option_key, '' );
+
+			// Store historic values if changed.
+			if ( ! empty( $old_value ) ) {
+				$history_key = $option_key . '_history';
+				$history     = get_option( $history_key, array() );
+
+				if ( ! is_array( $history ) ) {
+					$history = array();
+				}
+
+				// Add new history entry.
+				$history[] = array(
+					'timestamp' => time(),
+					'value'     => $old_value,
+				);
+
+				update_option( $history_key, $history );
+			}
+		}
 		\WC_Admin_Settings::save_fields( $this->page->get_available_settings() );
 	}
 

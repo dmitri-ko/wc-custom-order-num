@@ -66,14 +66,10 @@ class Search_Subscriber implements Subscriber_Interface {
 			return $result;
 		}
 
-		$prefix  = \WC_Admin_Settings::get_option( 'prefix' );
-		$postfix = \WC_Admin_Settings::get_option( 'postfix' );
-		$seed    = (int) str_replace( array( $prefix, $postfix ), '', $args['s'] );
-
 		$meta_query = array(
 			array(
-				'key'   => Customer_Order::CON_META_KEY,
-				'value' => $seed,
+				'key'   => Customer_Order::CON_META_KEY_DISPLAY_ORDER_NUM,
+				'value' => $args['s'],
 			),
 		);
 

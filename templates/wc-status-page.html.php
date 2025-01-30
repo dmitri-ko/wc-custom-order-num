@@ -30,6 +30,15 @@
 				<button type="submit" class="button button-large button--utils  js-con-utils-fix" ><?php esc_html_e( 'Fix order numbers', 'wc-custom-order-num' ); ?></button>
 			</td>
 		</tr>
+		<tr class="persist_order_nums">
+			<th>
+				<strong class="name"><?php esc_html_e( 'Persist order numbers', 'wc-custom-order-num' ); ?></strong>
+				<p class="description">	<?php esc_html_e( 'This tool will generate and save order numbers.', 'wc-custom-order-num' ); ?>		</p>
+			</th>
+			<td class="run-tool">					
+				<button type="submit" class="button button-large button--utils  js-con-utils-persist" ><?php esc_html_e( 'Persist order numbers', 'wc-custom-order-num' ); ?></button>
+			</td>
+		</tr>
 	</tbody>
 </table>
 <div class="message-box hidden" id="message-box-message"></span></div>

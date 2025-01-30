@@ -43,7 +43,11 @@ class CON_Subscriber implements Subscriber_Interface {
 	 * @return string
 	 */
 	public function show_number( int $order_id ): string {
-		$customer_order = new Customer_Order( $order_id );
+		$order  = wc_get_order( $order_id );
+		if ( ! $order ) {
+			return '';
+		}
+		$customer_order = new Customer_Order( wc_get_order( $order_id ) );
 		return $customer_order->get_order_num();
 	}
 
@@ -59,9 +63,14 @@ class CON_Subscriber implements Subscriber_Interface {
 			return;
 		}
 
-		if ( ! $maybe_order->get_meta( Customer_Order::CON_META_KEY ) ) {
-			$custom_num = Customer_Order::get_next_order_num();
-			$maybe_order->update_meta_data( Customer_Order::CON_META_KEY, $custom_num );
+		$customer_order = new Customer_Order( $maybe_order );
+
+		try {
+			$customer_order->get_order_num_seed();
+
+		} catch ( \Exception $e ) {
+			$customer_order->set_order_num_seed( Customer_Order::get_next_order_num() );
+			$customer_order->save_meta();
 		}
 	}
 }
