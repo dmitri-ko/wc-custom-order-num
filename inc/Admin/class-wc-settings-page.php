@@ -52,6 +52,7 @@ class WC_Settings_Page {
 			new Setting( 'num_length', __( 'Number length', 'wc-custom-order-num' ), 4 ),
 			new Setting( 'prefix', __( 'Prefix', 'wc-custom-order-num' ) ),
 			new Setting( 'postfix', __( 'Postfix', 'wc-custom-order-num' ) ),
+			new Setting( 'is_cache_allowed', __( 'Cache', 'wc-custom-order-num' ), false, 'checkbox' ),
 		);
 	}
 
